@@ -98,7 +98,9 @@ console.log("*******************************************************************
 /* 6. slice method 
          - to copy elements from an array
          - negative numbers can be used to specify the ending index
-         - array.slice(starting index,ending index -1)                  */
+         - array.slice(starting index,ending index -1)       
+         - if ending index is not specified it will take till end
+         - ending index must be greater than starting index           */
 
 let copycars = tataCars.slice(2,3);
 console.log("copy cars",copycars," and array is",tataCars); // copy cars [ 'Punch' ]  and array is [ 'sierra', 'curv', 'Punch', 'Nexon', 'Harrier', 'Safari' ]
@@ -109,7 +111,7 @@ console.log("copy cars",copycarsfirst," and array is",tataCars); // copy cars [ 
 let copycarssecond = tataCars.slice(2,0);
 console.log("copy cars",copycarssecond," and array is",tataCars); // copy cars []  and array is [ 'sierra', 'curv', 'Punch', 'Nexon', 'Harrier', 'Safari' ]
 
-let copycarsthird = tataCars.slice(2,-1);
+let copycarsthird = tataCars.slice(2,-2);
 console.log("copy cars",copycarsthird," and array is",tataCars); // copy cars [ 'Punch', 'Nexon', 'Harrier' ]  and array is [ 'sierra', 'curv', 'Punch', 'Nexon', 'Harrier', 'Safari' ]
 
 console.log("*****************************************************************************");
@@ -208,6 +210,28 @@ console.log(count);
 
 console.log("*****************************************************************************");
 
+/* 14.1 map method 
+         - to transform each element of an array and return a new array
+         - does NOT modify the original array
+         - returns a new array with transformed elements       */
+
+let prices = [100, 200, 300, 400];
+let discountedPrices = prices.map(price => price * 0.8);  // apply 20% discount
+console.log("Original prices:", prices);  // [ 100, 200, 300, 400 ]
+console.log("Discounted prices:", discountedPrices);  // [ 80, 160, 240, 320 ]
+
+let productNames = ["apple", "banana", "cherry"];
+let upperCaseNames = productNames.map(name => name.toUpperCase());
+console.log("Original names:", productNames);  // [ 'apple', 'banana', 'cherry' ]
+console.log("UpperCase names:", upperCaseNames);  // [ 'APPLE', 'BANANA', 'CHERRY' ]
+
+let nums = [1, 2, 3, 4, 5];
+let squared = nums.map(num => num * num);
+console.log("Original numbers:", nums);  // [ 1, 2, 3, 4, 5 ]
+console.log("Squared numbers:", squared);  // [ 1, 4, 9, 16, 25 ]
+
+console.log("*****************************************************************************");
+
 /* 15. every method 
          - to check if all elements of an array satisfy a condition   
          - returns boolean   */
@@ -244,6 +268,16 @@ console.log("*******************************************************************
 /* 17. find method 
          - to find the first element that satisfies a condition  */
 
-let numberarray = [20, 16,3,98,0,23,55,789,3542,1];
-let zero = numberarray.find(num => num==0);
+let numberarray = [20, 16,3,98,0,23,20,55,789,3542,1];
+let zero = numberarray.find(num => num==20);
 console.log(zero);
+
+let empployees = [
+    {name:"arya", salary:25000},
+    {name:"deva", salary:30000},
+    {name:"renu", salary:28000},
+    {name:"anu", salary:32000}
+];
+
+let emp = empployees.find(employee => employee.salary==25000);
+console.log(emp.name);
