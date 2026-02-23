@@ -78,20 +78,20 @@ console.log("*******************************************************************
      -> Usage of IIFE - To have a new scope that works only within the IIFE and doesn't pollute the global scope   */
  
 (function(){
-    let iife = "vaishnavi";
+    let iife = "vaishnavi";  // non parameterized IIFE 
     console.log("Hello "+iife);
 })();
 
-(()=>console.log("immedietly involked function"))(); // Arrow function as Immediately invoked function expression
+(()=>console.log("immedietly involked function"))(); // Arrow function as IIFE
 
 (function(a,b){
-    console.log(a+b);
+    console.log(a+b);  // IIFE with 2 parameter
 })(10,5);
 
 let peoples=["Anna","Manu","Annie","John","Hari","Sita"];
 
 (function(peoples){
-    peoples.forEach((people)=>console.log(people));   
+    peoples.forEach((people)=>console.log(people));   //Array of Strings as parameter
 })(peoples);
 
 // D.Function expression in object method
@@ -106,3 +106,74 @@ let person ={
 };
 person.wish();
 person.wisharrow();
+
+/* 3. Function Constructor
+         -> format  - new Function(arg1,arg2....argn, functionBody)
+         -> usage - used to create functions dynamically from strings -- parametrs and method body will give as string
+         -> less commonly used compared to the above 4 types  */
+
+let constr= new Function("return 2*4");
+console.log(constr());
+
+new Function(console.log("hi"));
+
+let constr1= new Function("a","b","return a*b");
+console.log(constr1(5,3));
+
+let op="+";
+let constr2= new Function("a","b","return a"+op+"b");
+console.log(constr2(3,2));
+
+
+/* 4. Generator Function
+         -> A function that can pause its execution
+         -> resume later
+         -> Syntax  - function* which indicates the function is a generator
+             - yield keyword which is used to pause and resume, can also return a value
+             - generator objects (next(), return(), throw())   */
+
+
+function* myGenerator(){
+    yield "hi";
+    yield "welcome";
+    yield "goodbye";
+}
+
+const gen = myGenerator();
+console.log(gen.next().value);   // to extract only value, else it will return like object -{ value: 'hi', done: false }
+console.log("it can pause its execution");
+console.log(gen.next().value);
+console.log("again it can pause its execution");
+console.log(gen.next().value);
+console.log(gen.next().value);
+
+for(let g of myGenerator()){     //using for in loop and accessing all the values in generator
+    console.log(g);
+}
+
+/* 5. Higher Order Function
+         -> takes one or more functions as arguments and can return a function
+         -> map, filter and reduce are examples of higher order functions  */
+
+
+function plus(a,b){
+    return a+b;
+}
+function subtract(a,b){
+    return a-b;
+}
+function multiply(a,b){
+    return a*b;
+}
+function divide(a,b){
+    return a/b;
+}
+
+function calculator(a,b,functionName){
+    return functionName(a,b);
+}
+
+console.log(calculator(10,5,plus));
+console.log(calculator(10,5,subtract));
+console.log(calculator(10,5,multiply));
+console.log(calculator(10,5,divide));
