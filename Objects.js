@@ -1,7 +1,12 @@
 
 //Different object creation methods in Javascript
 
-// 1. Object Literals 2. Constructor Function 3. ES6 class syntax
+/* 1. Object Literals
+   2. Constructor Function 
+   3. ES6 class syntax
+   4. OBJECT.CREATE METHOD 
+   5. OBJECT.ASSIGN METHOD
+   6. FACTORY FUNCTION
 
 console.log("--------------------------OBJECT LITERALS-------------------------------")
 
@@ -153,7 +158,7 @@ console.log("--------------------------OBJECT.ASSIGN METHOD---------------------
   const target3=Object.assign({},source,target2);
   console.log(target3);
 
-console.log("--------------------------OBJECT.ASSIGN METHOD-------------------------------")
+console.log("--------------------------FACTORY FUNCTION-------------------------------")
 
 /* 6. Factory functions
   -> It is a function that can return an object
