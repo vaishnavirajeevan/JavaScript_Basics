@@ -145,8 +145,8 @@ console.log("--------------------------OBJECT.ASSIGN METHOD---------------------
 /* 5. Object.assign()
       -> It is used to copy properties from one or more objects into a target object
       -> syntax - Object.assign(target, ...sources)
-     -> It will return the merged object
-  -> If we don't give {} as argument then it will modify the value of the first object */
+      -> It will return the merged object
+      -> If we don't give {} as argument then it will modify the value of the first object */
 
   const source={ subject:" physics",mark:45};
   const target=Object.assign({},source);
@@ -161,10 +161,10 @@ console.log("--------------------------OBJECT.ASSIGN METHOD---------------------
 console.log("--------------------------FACTORY FUNCTION-------------------------------")
 
 /* 6. Factory functions
-  -> It is a function that can return an object
-  -> It is a function that can be used to create multiple objects
-  -> No need to use keywords like new, this etc to invoke the function
-  -> We can invoke the function like any other function and it returns an object */
+     -> It is a function that can return an object
+     -> It is a function that can be used to create multiple objects
+     -> No need to use keywords like new, this etc to invoke the function
+     -> We can invoke the function like any other function and it returns an object */
 
   function teacher(name,subject){
     return{
