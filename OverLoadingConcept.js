@@ -33,9 +33,9 @@
   console.log(sum(1,2,3,4));
   console.log(sum("a","b"));
 
-  console.log("-----------------------------constructor function---------------------------------");
+  console.log("-----------------------------Argument objects---------------------------------");
 
-   // Example of method overloading simulation using constructor function
+   // Example of method overloading simulation using Argument objects
 
 
    function add2(){
@@ -55,7 +55,6 @@
 
   // Example of method overloading simulation using typeof operator 
 
-
   function sum2(a,b,c){
     if (typeof(a)=="number" && typeof(b)=="number" && typeof(c)=="number"){
         return a+b+c;
@@ -73,7 +72,7 @@
   console.log(sum2());
   console.log(sum2(1,2));
   console.log(sum2(1,2,3,4));
-  console.log(sum2("a","b"));
+
 
 
 
